@@ -18,7 +18,7 @@ int main() {
   const double h = pow(10, 5);
   const double m = pow(10, 3);
   const double a = pow(10, 7);
-  const double k =  3 * pow(10, -10);
+  const double k = 3 * pow(10, -10);
   int b;
   double long c;
   cout << "Выберете перевод из СИ в СГС, который вам нужно, написав номер." << endl;
@@ -29,22 +29,21 @@ int main() {
   cin >> b;
   cout << "Введите величину единицы: " << endl;
   cin >> c;
-  switch(b)
-{
-    case 1:
-        cout << c << " Ньютонов = " << c * h <<" дин";
-        break;
-    case 2:
-       cout << c << " Килограмм = " << c * m <<" грамм";
-       break;
-    case 3:
-        cout << c << " Джоулей = " << c * a <<" эрг";
-        break;
-    case 4:
-        cout << c << " Кулон = " << c * k <<" СГС - единиц заряда";
-        break;
-}
-  
+  switch (b) {
+  case 1:
+    cout << c << " Ньютонов = " << c * h << " дин";
+    break;
+  case 2:
+    cout << c << " Килограмм = " << c * m << " грамм";
+    break;
+  case 3:
+    cout << c << " Джоулей = " << c * a << " эрг";
+    break;
+  case 4:
+    cout << c << " Кулон = " << c * k << " СГС - единиц заряда";
+    break;
+  }
+
   return 0;
-  
+
 }
