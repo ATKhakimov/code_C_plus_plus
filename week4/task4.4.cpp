@@ -1,77 +1,69 @@
 #include <iostream>
 
 
-using std::cout;
-using std::endl;
-using std::string;
-using std::cin;
+enum Month
+{
+January = 1,
+February,
+March,
+April,
+May,
+June,
+July,
+August,
+September,
+October,
+November,
+December
+};
 
-const int January { 31 };
-const int February { 28 };
-const int March { 31 };
-const int April { 30 };
-const int May { 31 };
-const int June { 30 };
-const int July { 31 };
-const int August { 31 };
-const int September { 30 };
-const int October { 31 };
-const int November { 30 };
-const int December { 31 };
 
 int main()
 {	
-    int a;
+    int a, answer;
     unsigned long int b;
-    cout << "Write the number of the month" << endl;
-	cout << "Enter mounth:" << '\t'; cin >> a;
-	cout << "Enter year:" << '\t'; cin >> b;
-	switch (a)
-	{
-	    case 1:
-	        cout << January;
-	        break;
-	    case 2:
-	        if ( b % 4 == 0 ){
-	            cout << February + 1;
-	            break;
-	        } else {
-	          cout << February;
-	          break;
-	        }
-	    case 3  :
-	        cout << March;
-	        break;
-	    case 4:
-	        cout << April;
-	        break;
-	    case 5:
-	        cout << May;
-	        break;
-	    case 6:
-	        cout << June;
-	        break;
-	    case 7:
-	        cout << July;
-	        break;
-	    case 8:
-	        cout << August;
-	        break;
-	    case 9:
-	        cout << September;
-	        break;
-	    case 10:
-	        cout << October;
-	        break;
-	    case 11:
-	        cout << November;
-	        break;
-	    case 12:
-	        cout << December;
-	        break;
-	    default:
-	        cout << "Smt incorrect";
+    std::cout << "Write the number of the month from 1 to 12:" << '\t'; std::cin>>a;
+	std::cout << "Enter year in 4-number format:" << '\t'; std::cin >> b;
+	switch(a){
+	case Month::January:
+		answer = 31;
+		break;
+	case Month::February:
+		if( b % 4 == 0){ answer = 29;}
+		else{ answer = 28;}
+		break;
+	case Month::March:
+		answer = 31;
+		break;
+	case Month::April:
+		answer = 30;
+		break;
+	case Month::May:
+		answer = 31;
+		break;
+	case Month::June:
+		answer = 30;
+		break;
+	case Month::July:
+		answer = 31;
+		break;
+	case Month::August:
+		answer = 31;
+		break;
+	case Month::September:
+		answer = 30;
+		break;
+	case Month::October:
+		answer = 31;
+		break;
+	case Month::November:
+		answer = 30;
+		break;
+	case Month::December:
+		answer = 30;
+		break;
+	default:
+		answer = -1;
 	}
-	
-
+	std::cout << answer;
 }
