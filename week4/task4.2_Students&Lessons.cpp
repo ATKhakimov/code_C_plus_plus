@@ -1,40 +1,24 @@
 #include <iostream>
-
-
-
-using std::cout;
-using std::endl;
-using std::string;
-using std::cin;
+#include <vector>
 
 struct Student;
 
 struct Lesson
 {
-    Student * class_ptr[3];
-    string name;
+    Student * vector <Student> class_ptr;
+    std::string name;   
     int amount;
     int complexcity;
-    double x()
-    { 
-        return amount * complexcity;
-    };
-    Lesson()
-    {
-        name = "test1";
-        amount = 0;
-        complexcity = 0;
-    }
 };
 
 struct Student
 {
     Lesson * lessons_ptr[3];
     /*lessons_ptr = new Lesson[3];*/
-    string surname;
+    std::string surname;
     int age;
     bool sex;
-    string *p;
+    std::string *p;
     double y()
     {
         return age * 2;
@@ -74,21 +58,21 @@ int main()
  
    Lesson LPoul;
    Lesson arr[3];
-   cout << "Poul Smith lessons are:" << endl;
+   std::cout << "Poul Smith lessons are:" << std::endl;
    for (int i = 0; i < 2; i++){
       arr[i] = *Poul.lessons_ptr[i]; 
    }
    for (int i = 0; i < 2; i++){
-        cout << arr[i].name << endl;
+        std::cout << arr[i].name << std::endl;
    }
  
-   cout <<"Physics class is:" << endl;
+   std::cout <<"Physics class is:" << std::endl;
    Student arrr[3];
    for (int i = 0; i < 2; i++){
         arrr[i] = *physics.class_ptr[i]; 
    }
    for (int i = 0; i < 2; i++){
-        cout << arrr[i].surname << endl;
+        std::cout << arrr[i].surname << std::endl;
    }
    
    
