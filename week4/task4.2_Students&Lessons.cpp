@@ -2,50 +2,56 @@
 #include <vector>
 
 struct Student;
+struct Lesson;
 
 struct Lesson
 {
-    Student * vector <Student> class_ptr;
+    std::vector<Student*> clas;
     std::string name;   
     int amount;
     int complexcity;
+    Lesson() : name("Test1"), amount(0), complexcity(0){};
 };
 
 struct Student
 {
-    Lesson * lessons_ptr[3];
-    /*lessons_ptr = new Lesson[3];*/
+    std::vector<Lesson*> lessons;
     std::string surname;
     int age;
     bool sex;
-    std::string *p;
-    double y()
-    {
-        return age * 2;
-    };
-    Student()
-    {
-        surname = "test";
-        age = 0;
-        sex = 0;
-    }
+    Student() : surname("Test"), age(0), sex(0) {};
+    
     
 };
 
+void add(Student& student, Lesson& lesson )
+{
+    student.lessons.push_back(&lesson);
+    lesson.clas.push_back(&student);
+}
+
+void outt( Lesson& lesson)
+{
+    for (int i = 0; i < lesson.clas.size(); i++){
+        std::cout <<(*lesson.clas[i]).surname << std::endl;
+    }
+}
+
+void outt( Student& student)
+{
+    for (int i = 0; i < student.lessons.size(); i++){
+        std::cout <<(*student.lessons[i]).name << std::endl;
+    }
+}
+
+
 int main()
 {	
-   Lesson math, physics, sport;
-   Student Valeria, Poul, Nikita, Sasha;
+   Lesson math, physics;
+   Student Valeria, Poul;
    math.name = "math";
    math.amount = 3;
    math.complexcity = 8;
-   Poul.lessons_ptr[0] = &math;
-   Poul.p = &math.name;
-   Poul.lessons_ptr[1] = &physics;
-   Valeria.lessons_ptr[0] = &physics;
-   physics.class_ptr[0] = &Valeria;
-   physics.class_ptr[1] = &Poul;
-   math.class_ptr[0] = &Poul;
    physics.name = "physics";
    physics.amount = 2;
    physics.complexcity = 6;
@@ -55,25 +61,20 @@ int main()
    Poul.surname = "Smith";
    Poul.age = 21;
    Poul.sex = 1;
- 
-   Lesson LPoul;
-   Lesson arr[3];
-   std::cout << "Poul Smith lessons are:" << std::endl;
-   for (int i = 0; i < 2; i++){
-      arr[i] = *Poul.lessons_ptr[i]; 
-   }
-   for (int i = 0; i < 2; i++){
-        std::cout << arr[i].name << std::endl;
-   }
- 
-   std::cout <<"Physics class is:" << std::endl;
-   Student arrr[3];
-   for (int i = 0; i < 2; i++){
-        arrr[i] = *physics.class_ptr[i]; 
-   }
-   for (int i = 0; i < 2; i++){
-        std::cout << arrr[i].surname << std::endl;
-   }
+   
+   add(Valeria, physics);
+   add(Poul, physics);
+   add(Poul, math);
+   
+   std::vector<Lesson> l {math, physics};
+   std::vector<Student> s {Valeria, Poul};
+   
+   std::cout << "Уроки Poul" << std::endl;
+   outt(s[1]);
+   std::cout << "Класс физики" << std::endl;
+   outt(l[1]);
+
+   
    
    
    
