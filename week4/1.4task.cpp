@@ -47,21 +47,24 @@ void add(Student& student, Lesson& lesson )
     lesson.clas.push_back(&student);
 }
 
-void outt( Lesson& lesson)
+void outt( const Lesson& lesson)
 {
-    for (int i = 0; i < lesson.clas.size(); i++){
-        std::cout <<(*lesson.clas[i]).surname << std::endl;
+    for( auto a : lesson.clas)
+    {
+        std::cout << (*a).surname << std::endl;
+    }
+    
+}
+
+void outt(const  Student& student)
+{
+     for( auto a : student.lessons)
+    {
+        std::cout << (*a).name << std::endl;
     }
 }
 
-void outt( Student& student)
-{
-    for (int i = 0; i < student.lessons.size(); i++){
-        std::cout <<(*student.lessons[i]).name << std::endl;
-    }
-}
-
-void out_compl( Student& student)
+void out_compl(const Student& student)
 {
     double av = 0;
     for (int i = 0; i < student.lessons.size(); i++){
@@ -123,8 +126,8 @@ int main()
    std:: cin >> inn;
    
    std::cout << "U choose" <<" " << s[inn].surname << std::endl;
-   std::cout << "Average difficulty of your student's subjects is:" << std::endl;
-   out_compl(s[inn]);
+   std::cout << "Lessons of your student is:" << std::endl;
+   outt(s[inn]);
    
 
    
