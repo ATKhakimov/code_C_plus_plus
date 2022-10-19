@@ -4,15 +4,16 @@
 class ErgJ
 {
 public:
-    double joules;
-    static const int jTe = 10000000;
-    static const long int jTv = 6000000000000000000;
-    double getV() const { return joules * jTv;}
-    double getE() const { return joules * jTe; }
-    double getJ() const { return joules;}
+    auto getV() const { return joules * jTv;}
+    auto getE() const { return joules * jTe; }
+    auto getJ() const { return joules;}
     void setJ(double a){ joules = a;}
     void setE(double a){ joules = a/ jTe;}
     void setV(double a){ joules = a/ jTv;}
+private:
+    double joules;
+    static constexpr double jTe = 10000000;
+    static constexpr double jTv = 6000000000000000000;
 };
 
 int main()
