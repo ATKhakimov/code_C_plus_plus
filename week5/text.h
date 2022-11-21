@@ -10,7 +10,9 @@ class Lesson
 {
 public:
     Lesson() : name("Test1"), amount(0), complexcity(0){};
-    Lesson (std::string n, int a, int c);
+    Lesson (const std::string n, int a, int c): n {name}, a {amount}, c {complexcity}{
+      
+    };
     ~Lesson() = default;
     std::vector<Student*> clas;
     std::string name;   
@@ -29,10 +31,9 @@ private:
 class Student
 {
 public:
-    Student (std::string n, int a, bool c){
-        surname = n;
-        age = a;
-        sex = c;
+    Student (const std::string n, int a, bool c) : n {surname}, a{age}, c{sex}
+    {
+       
     }
     Student() : surname("Test"), age(0), sex(0) {};
     ~Student() = default;
