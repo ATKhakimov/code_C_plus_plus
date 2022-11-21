@@ -16,7 +16,7 @@ std::ostream &operator<<(std::ostream &stream, Figured const *Figured) {
 
 Polygon::Polygon(const std::vector<std::pair<double, double>> points_)
     : points(points_) {
-  razmer();
+  l_size();
 };
 
 double Polygon::per() const {

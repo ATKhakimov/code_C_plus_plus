@@ -19,8 +19,6 @@ public:
   friend std::ostream &operator<<(std::ostream &stream, Figured const *figure);
 };
 
-std::ostream &operator<<(std::ostream &stream, Figured const *figure);
-
 class Polygon : public Figured {
 public:
   explicit Polygon(const std::vector<std::pair<double, double>> points_);
@@ -36,7 +34,7 @@ protected:
   std::vector<double> lines;
 
 private:
-  virtual void razmer() {
+  virtual void l_size() {
     size_t size = std::size(points);
     for (size_t i = 0; i < size; i++) {
       lines.push_back(dist(points[i], points[(i + 1) % size]));
@@ -102,7 +100,7 @@ class Square : public Rectangle, public Rhombus {
 public:
   explicit Square(const std::vector<std::pair<double, double>> points);
 
-  double per() const override final { return Rhombus::per(); };
+  double per() const override final { return 4* lines[0]; };
 
   double sq() const override final { return Rectangle::sq(); };
 
